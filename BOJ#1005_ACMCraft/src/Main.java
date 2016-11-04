@@ -77,6 +77,7 @@ public class Main {
 
 			Queue<Integer> q = new LinkedList<Integer>();
 
+			// indegree가 0인 노드들을 Queue에 넣는다.
 			for (int i = 1; i <= N; i++) {
 
 				if (indegree[i] == 0) {
@@ -86,7 +87,7 @@ public class Main {
 				}
 			}
 
-			// N번 Loop
+			// N번 Loop : 노드가 N개이고 loop 1번에 노드가 1개씩 처리될 것이다.
 			for (int i = 0; i < N; i++) {
 
 				if (q.isEmpty()) {
@@ -97,13 +98,16 @@ public class Main {
 				int v = q.poll();
 				for (int nextNode : XY.get(v)) {
 
+					// indegree가 0인 노드들을 제거하면서, 인접한 노드들의 indegree를 1씩 줄여준다.
 					indegree[nextNode]--;
 
+					// 인접한 노드들의 cost를 갱신해준다.
 					if (cost[nextNode] < cost[v] + D[nextNode]) {
 
 						cost[nextNode] = cost[v] + D[nextNode];
 					}
 
+					// 인접한 노드의 indegree가 0이 되면 Queue에 삽입한다.
 					if (indegree[nextNode] == 0) {
 
 						q.offer(nextNode);
