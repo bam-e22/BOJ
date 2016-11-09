@@ -4,6 +4,10 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+/*
+ * BOJ#11047 동전 0
+ * https://www.acmicpc.net/problem/11047
+ */
 public class Main {
 
 	public static void main(String[] args) throws IOException {
