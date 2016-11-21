@@ -19,11 +19,11 @@ public class Main {
 
 		N = Integer.parseInt(br.readLine());
 
-		System.out.println(dfs(N));
+		System.out.println(go(N));
 
 	}
 
-	static int dfs(int n) {
+	static int go(int n) {
 
 		if (n == 1) {
 
@@ -36,14 +36,14 @@ public class Main {
 		}
 
 		// -1
-		dp[n] = dfs(n - 1) + 1;
+		dp[n] = go(n - 1) + 1;
 
 		// /3
 		if (n % 3 == 0) {
 
 			int temp;
 
-			temp = dfs(n / 3) + 1;
+			temp = go(n / 3) + 1;
 
 			if (dp[n] > temp) {
 
@@ -56,7 +56,7 @@ public class Main {
 
 			int temp;
 
-			temp = dfs(n / 2) + 1;
+			temp = go(n / 2) + 1;
 
 			if (dp[n] > temp) {
 
