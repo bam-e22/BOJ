@@ -2,21 +2,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/*
- * BOJ#2089 -2진수
- * https://www.acmicpc.net/problem/2089
- */
-
 public class Main {
-
 	public static void main(String[] args) throws IOException {
 
 		int N;
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		StringBuilder outputStr = new StringBuilder();
-		
+
 		N = Integer.parseInt(br.readLine());
 
 		if (N == 0) {
@@ -25,19 +17,15 @@ public class Main {
 			return;
 		}
 
-		while (N != 0) {
+		StringBuilder outputStr = new StringBuilder();
 
-			if (N % 2 == 0) {
+		while (N != 1) {
 
-				outputStr.insert(0, "0");
-			} else {
-
-				outputStr.insert(0, "1");
-			}
-
-			N = N < 0 ? -((N - 1) / 2) : -(N / 2);
+			outputStr.append(Math.abs(N % (-2)));
+			N = (int) Math.ceil((double) N / (-2));
 		}
+		outputStr.append(N);
 
-		System.out.println(outputStr.toString());
+		System.out.println(outputStr.reverse());
 	}
 }
