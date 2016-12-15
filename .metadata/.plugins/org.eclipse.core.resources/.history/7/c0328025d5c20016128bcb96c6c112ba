@@ -1,0 +1,34 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/*
+ * BOJ#2089 -2진수
+ * https://www.acmicpc.net/problem/2089
+ */
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+
+		int N;
+		StringBuilder outputStr = new StringBuilder();
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		N = Integer.parseInt(br.readLine());
+
+		int max = 0;
+		
+		while(N > 0) {
+
+			while() {
+				
+			}
+			outputStr.insert(0, (char) (N % 2 + 48));
+			N = N / 2;
+		}
+		
+		System.out.println(outputStr);
+
+	}
+}
