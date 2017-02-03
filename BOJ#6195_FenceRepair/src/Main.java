@@ -41,6 +41,7 @@ public class Main {
                 minIdx1 ^= minIdx2;
             }
 
+            // 가장 짧은 널빤지와 그 다음으로 작은 널빤지를 구한다
             for (int i = 2; i < N; i++) {
 
                 if (L[i] < L[minIdx1]) {
@@ -53,9 +54,12 @@ public class Main {
                 }
             }
 
+            // 구한 2개의 널빤지를 합친다. cost 갱신.
             int subCost = L[minIdx1] + L[minIdx2];
             cost += subCost;
 
+            // 널빤지 2개를 합쳤으므로 N = N-1을 해준다.
+            // 합친 널빤지는 L[minIdx1]에 넣어주고, 필요 없어진 minIdx2에는 L[N-1] 값을 넣어준다.
             if (minIdx1 == N - 1) {
 
                 // swap
