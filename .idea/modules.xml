@@ -84,6 +84,7 @@
       <module fileurl="file://$PROJECT_DIR$/BOJ#7676_SarumansArmy/@BOJ#7676_SarumansArmy.iml" filepath="$PROJECT_DIR$/BOJ#7676_SarumansArmy/@BOJ#7676_SarumansArmy.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#9012_PS/@BOJ#9012_PS.iml" filepath="$PROJECT_DIR$/BOJ#9012_PS/@BOJ#9012_PS.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#9095_sum123/@BOJ#9095_sum123.iml" filepath="$PROJECT_DIR$/BOJ#9095_sum123/@BOJ#9095_sum123.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ#9251_LCS/@BOJ#9251_LCS.iml" filepath="$PROJECT_DIR$/BOJ#9251_LCS/@BOJ#9251_LCS.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#9461_PadovanSequence/@BOJ#9461_PadovanSequence.iml" filepath="$PROJECT_DIR$/BOJ#9461_PadovanSequence/@BOJ#9461_PadovanSequence.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#9465_Sticker/@BOJ#9465_Sticker.iml" filepath="$PROJECT_DIR$/BOJ#9465_Sticker/@BOJ#9465_Sticker.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#9613_SumOfGCD/@BOJ#9613_SumOfGCD.iml" filepath="$PROJECT_DIR$/BOJ#9613_SumOfGCD/@BOJ#9613_SumOfGCD.iml" />
@@ -91,7 +92,6 @@
       <module fileurl="file://$PROJECT_DIR$/BOJ#13560_Football/BOJ#13560_Football.iml" filepath="$PROJECT_DIR$/BOJ#13560_Football/BOJ#13560_Football.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2618_PoliceCar/BOJ#2618_PoliceCar.iml" filepath="$PROJECT_DIR$/BOJ#2618_PoliceCar/BOJ#2618_PoliceCar.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#6588_GoldbachsConjecture/BOJ#6588_GoldbachsConjecture.iml" filepath="$PROJECT_DIR$/BOJ#6588_GoldbachsConjecture/BOJ#6588_GoldbachsConjecture.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BOJ#9251_LCS/BOJ#9251_LCS.iml" filepath="$PROJECT_DIR$/BOJ#9251_LCS/BOJ#9251_LCS.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestProject/TestProject.iml" filepath="$PROJECT_DIR$/TestProject/TestProject.iml" />
     </modules>
   </component>
