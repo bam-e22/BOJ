@@ -49,7 +49,7 @@ public class Main {
             edge[i] = new Edge(A, B, C);
         }
 
-        if (bellmanFord(edge, dist, 1, N, M)) {
+        if (bellmanFord(edge, dist, N, M)) {
 
             for (int i = 2; i < N + 1; i++) {
 
@@ -62,9 +62,10 @@ public class Main {
     }
 
     // O(VE)
-    static boolean bellmanFord(Edge[] edge, int[] dist, int s, int N, int M) {
+    static boolean bellmanFord(Edge[] edge, int[] dist, int N, int M) {
 
         // 사이클을 가지지 않는 최대 iteration : 1 ~ |V[G]|-1
+        // : N-1 번 검사
         for (int i = 0; i < N - 1; i++) {
 
             // for each edge
@@ -79,6 +80,7 @@ public class Main {
         }
 
         // check - Negative edge weight cycles
+        // : 한번 더 검사하여(N 번째), 값이 더 내려간다면? 음수 사이클
         for (int i = 0; i < M; i++) {
 
             if (dist[edge[i].dest] > dist[edge[i].source] + edge[i].weight) {
