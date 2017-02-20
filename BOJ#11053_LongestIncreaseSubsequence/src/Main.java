@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /*
@@ -58,24 +59,16 @@ public class Main {
 			} else {
 
 				// CeilIndex를 찾고 replace한다.
-				tailTable[findCeilIndex(tailTable, -1, lisLength - 1, A[i])] = A[i];
+
+				int idx1 = Arrays.binarySearch(tailTable, 0, lisLength, A[i]);
+
+				idx1 = idx1 < 0 ? -idx1 - 1 : idx1;
+
+				tailTable[idx1] = A[i];
 
 			}
 		}
 
 		return lisLength;
-	}
-
-	static int findCeilIndex(int[] A, int l, int r, int key) {
-
-		while (r - l > 1) {
-			int m = l + (r - l) / 2;
-			if (A[m] >= key)
-				r = m;
-			else
-				l = m;
-		}
-
-		return r;
 	}
 }
