@@ -52,6 +52,7 @@
       <module fileurl="file://$PROJECT_DIR$/BOJ#12100_2048Easy/@BOJ#12100_2048Easy.iml" filepath="$PROJECT_DIR$/BOJ#12100_2048Easy/@BOJ#12100_2048Easy.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#1212_OCTToBIN/@BOJ#1212_OCTToBIN.iml" filepath="$PROJECT_DIR$/BOJ#1212_OCTToBIN/@BOJ#1212_OCTToBIN.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#12208_Super2048(Small)/@BOJ#12208_Super2048(Small).iml" filepath="$PROJECT_DIR$/BOJ#12208_Super2048(Small)/@BOJ#12208_Super2048(Small).iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ#1233_BovineBones/@BOJ#1233_BovineBones.iml" filepath="$PROJECT_DIR$/BOJ#1233_BovineBones/@BOJ#1233_BovineBones.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#1260_DFS_BFS/@BOJ#1260_DFS_BFS.iml" filepath="$PROJECT_DIR$/BOJ#1260_DFS_BFS/@BOJ#1260_DFS_BFS.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#1339_WordMath/@BOJ#1339_WordMath.iml" filepath="$PROJECT_DIR$/BOJ#1339_WordMath/@BOJ#1339_WordMath.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#13413_OthelloRelocation/@BOJ#13413_OthelloRelocation.iml" filepath="$PROJECT_DIR$/BOJ#13413_OthelloRelocation/@BOJ#13413_OthelloRelocation.iml" />
@@ -65,6 +66,7 @@
       <module fileurl="file://$PROJECT_DIR$/BOJ#13423_ThreeDots/@BOJ#13423_ThreeDots.iml" filepath="$PROJECT_DIR$/BOJ#13423_ThreeDots/@BOJ#13423_ThreeDots.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#13424_SecretMeeting/@BOJ#13424_SecretMeeting.iml" filepath="$PROJECT_DIR$/BOJ#13424_SecretMeeting/@BOJ#13424_SecretMeeting.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#1373_BINToOCT/@BOJ#1373_BINToOCT.iml" filepath="$PROJECT_DIR$/BOJ#1373_BINToOCT/@BOJ#1373_BINToOCT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ#1405_CrazyRobot/@BOJ#1405_CrazyRobot.iml" filepath="$PROJECT_DIR$/BOJ#1405_CrazyRobot/@BOJ#1405_CrazyRobot.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#1406_Editor/@BOJ#1406_Editor.iml" filepath="$PROJECT_DIR$/BOJ#1406_Editor/@BOJ#1406_Editor.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#1463_SetTo1/@BOJ#1463_SetTo1.iml" filepath="$PROJECT_DIR$/BOJ#1463_SetTo1/@BOJ#1463_SetTo1.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#1520_Downhill/@BOJ#1520_Downhill.iml" filepath="$PROJECT_DIR$/BOJ#1520_Downhill/@BOJ#1520_Downhill.iml" />
@@ -85,11 +87,13 @@
       <module fileurl="file://$PROJECT_DIR$/BOJ#2089_MinusBinaryNum/@BOJ#2089_MinusBinaryNum.iml" filepath="$PROJECT_DIR$/BOJ#2089_MinusBinaryNum/@BOJ#2089_MinusBinaryNum.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2133_TileFilling/@BOJ#2133_TileFilling.iml" filepath="$PROJECT_DIR$/BOJ#2133_TileFilling/@BOJ#2133_TileFilling.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2156_WineTaste/@BOJ#2156_WineTaste.iml" filepath="$PROJECT_DIR$/BOJ#2156_WineTaste/@BOJ#2156_WineTaste.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ#2169_ControlRobot/@BOJ#2169_ControlRobot.iml" filepath="$PROJECT_DIR$/BOJ#2169_ControlRobot/@BOJ#2169_ControlRobot.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2178_MazeSearching/@BOJ#2178_MazeSearching.iml" filepath="$PROJECT_DIR$/BOJ#2178_MazeSearching/@BOJ#2178_MazeSearching.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2193_PinaryNumber/@BOJ#2193_PinaryNumber.iml" filepath="$PROJECT_DIR$/BOJ#2193_PinaryNumber/@BOJ#2193_PinaryNumber.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2225_SumDecomposition/@BOJ#2225_SumDecomposition.iml" filepath="$PROJECT_DIR$/BOJ#2225_SumDecomposition/@BOJ#2225_SumDecomposition.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2252_Lineup/@BOJ#2252_Lineup.iml" filepath="$PROJECT_DIR$/BOJ#2252_Lineup/@BOJ#2252_Lineup.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2293_Coin1/@BOJ#2293_Coin1.iml" filepath="$PROJECT_DIR$/BOJ#2293_Coin1/@BOJ#2293_Coin1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ#2295_SumOfThree/@BOJ#2295_SumOfThree.iml" filepath="$PROJECT_DIR$/BOJ#2295_SumOfThree/@BOJ#2295_SumOfThree.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2490_Yut/@BOJ#2490_Yut.iml" filepath="$PROJECT_DIR$/BOJ#2490_Yut/@BOJ#2490_Yut.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2532_FoodChain/@BOJ#2532_FoodChain.iml" filepath="$PROJECT_DIR$/BOJ#2532_FoodChain/@BOJ#2532_FoodChain.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2557_HelloWorld/@BOJ#2557_HelloWorld.iml" filepath="$PROJECT_DIR$/BOJ#2557_HelloWorld/@BOJ#2557_HelloWorld.iml" />
@@ -116,7 +120,8 @@
       <module fileurl="file://$PROJECT_DIR$/BOJ#9663_NQueen/@BOJ#9663_NQueen.iml" filepath="$PROJECT_DIR$/BOJ#9663_NQueen/@BOJ#9663_NQueen.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#10875_Snake/BOJ#10875_Snake.iml" filepath="$PROJECT_DIR$/BOJ#10875_Snake/BOJ#10875_Snake.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#13560_Football/BOJ#13560_Football.iml" filepath="$PROJECT_DIR$/BOJ#13560_Football/BOJ#13560_Football.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BOJ#1405_CrazyRobot/BOJ#1405_CrazyRobot.iml" filepath="$PROJECT_DIR$/BOJ#1405_CrazyRobot/BOJ#1405_CrazyRobot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ#1533_NumOfPath/BOJ#1533_NumOfPath.iml" filepath="$PROJECT_DIR$/BOJ#1533_NumOfPath/BOJ#1533_NumOfPath.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ#1759_GeneratePW/BOJ#1759_GeneratePW.iml" filepath="$PROJECT_DIR$/BOJ#1759_GeneratePW/BOJ#1759_GeneratePW.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2240_PlumTree/BOJ#2240_PlumTree.iml" filepath="$PROJECT_DIR$/BOJ#2240_PlumTree/BOJ#2240_PlumTree.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2618_PoliceCar/BOJ#2618_PoliceCar.iml" filepath="$PROJECT_DIR$/BOJ#2618_PoliceCar/BOJ#2618_PoliceCar.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#3190_Snake/BOJ#3190_Snake.iml" filepath="$PROJECT_DIR$/BOJ#3190_Snake/BOJ#3190_Snake.iml" />
