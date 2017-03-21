@@ -1,7 +1,5 @@
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.TreeSet;
 
 /**
  * BOJ#1946 신입사원
@@ -15,7 +13,6 @@ public class Main {
         int T; // 테스트 케이스 개수
         int N; // 지원자의 숫자 <= 100,000
         Grade[] grade; // 서류, 면접 등수
-        TreeSet<Grade> set;
 
         Scanner sc = new Scanner(System.in);
 
@@ -25,34 +22,30 @@ public class Main {
 
             N = sc.nextInt();
 
-            grade = new Grade[N];
-            set = new TreeSet<>();
+            grade = new Grade[N + 1];
 
             for (int i = 0; i < N; i++) {
 
-                grade[i] = new Grade(sc.nextInt(), sc.nextInt());
+                int a = sc.nextInt();
+                int b = sc.nextInt();
+
+                grade[a] = new Grade(a, b);
             }
 
-            Arrays.sort(grade);
+            int ans = 1;
+            int best = grade[1].b;
+            for (int i = 2; i <= N; i++) {
 
-            set.add(grade[0]);
+                if (grade[i].b < best) {
 
-            int ans = 0;
-            int min = set.first().b;
-            for (int i = 1; i < N; i++) {
-
-                if (grade[i].b < min) {
-
-                    min = min > grade[i].b ? grade[i].b : min;
+                    best = best > grade[i].b ? grade[i].b : best;
                     ans++;
                 }
             }
 
-            System.out.println(ans + 1);
+            System.out.println(ans);
         }
     }
-
-
 }
 
 class Grade implements Comparable<Grade> {
