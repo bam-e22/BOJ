@@ -22,7 +22,6 @@ public class Main {
         int K; // 포장할 도로의 수 1 <= K <= 20
         ArrayList<ArrayList<Edge>> adj = new ArrayList<>();
         int[][] dist; // dist[i][k] : 도로를 k개 포장 했을 때 1 -> N으로 가는 최소 cost
-        boolean[][] visited;
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -32,12 +31,10 @@ public class Main {
         K = Integer.parseInt(st.nextToken());
 
         dist = new int[N + 1][K + 1];
-        visited = new boolean[N + 1][N + 1];
 
         for (int i = 0; i < N + 1; i++) {
 
             Arrays.fill(dist[i], INF);
-            Arrays.fill(visited[i], false);
             adj.add(new ArrayList<>());
         }
 
@@ -53,7 +50,7 @@ public class Main {
             adj.get(b).add(new Edge(a, w));
         }
 
-        dijkstra(1, K, adj, dist, visited);
+        dijkstra(1, K, adj, dist);
 
         int ans = INF;
         for (int i = 0; i <= K; i++) {
@@ -65,7 +62,7 @@ public class Main {
 
     }
 
-    static void dijkstra(int src, int K, ArrayList<ArrayList<Edge>> adj, int[][] dist, boolean[][] visited) {
+    static void dijkstra(int src, int K, ArrayList<ArrayList<Edge>> adj, int[][] dist) {
 
         PriorityQueue<Element> pq = new PriorityQueue<>();
 
@@ -77,15 +74,14 @@ public class Main {
 
             int here = pq.peek().node;
             int step = pq.peek().step;
+            int cost = pq.peek().dist;
 
             pq.poll();
 
-            if (visited[here][step]) {
+            if (dist[here][step] < cost) {
 
                 continue;
             }
-
-            visited[here][step] = true;
 
             for (Edge x : adj.get(here)) {
 
