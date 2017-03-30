@@ -11,26 +11,34 @@ import java.util.StringTokenizer;
 
 public class Main {
 
+    static int[] dRow = {0, -1, 0, 1};
+    static int[] dCol = {-1, 0, 1, 0};
+
+    static int[][] map = new int[500][500];
+    static int[][] dp = new int[500][500]; // dp[i][j] : i,j에서 목표 지점으로 가는 내리막 경우의 수
+
+    static final int NONE = -1;
+
+    static int M;
+    static int N;
+
+    static {
+
+        for (int i = 0; i < 500; i++) {
+
+            Arrays.fill(dp[i], NONE);
+        }
+    }
+
     public static void main(String[] args) throws IOException {
 
-        int M; // 세로의 크기
-        int N; // 가로의 크기
-        int[][] map;
-        int[][] dp;
-
-        // input
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         M = Integer.parseInt(st.nextToken());
         N = Integer.parseInt(st.nextToken());
 
-        map = new int[M][N];
-        dp = new int[M][N];
-
         for (int i = 0; i < M; i++) {
-
-            Arrays.fill(dp[i], 0);
 
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < N; j++) {
@@ -39,49 +47,56 @@ public class Main {
             }
         }
 
-        System.out.println(solve(map, dp, M, N, M - 1, N - 1));
+        solve(0, 0);
 
+        System.out.println(dp[0][0]);
+    }
 
-    } // main
+    static int solve(int row, int col) {
 
-    // dp[i][j] : (0, 0) 부터 (i, j) 좌표까지의 내리막 경로의 수
-    static int solve(int[][] map, int[][] dp, int M, int N, int i, int j) {
+        //System.out.println("## row = " + row + ", col = " + col);
 
-        if (i == 0 && j == 0) {
+        if (row == M - 1 && col == N - 1) {
 
             return 1;
         }
 
-        if (dp[i][j] > 0) {
+        // memoization
+        if (dp[row][col] > NONE) {
 
-            return dp[i][j];
+            //System.out.println("memoization");
+            return dp[row][col];
         }
 
-        // 상
-        if (i - 1 >= 0 && map[i - 1][j] > map[i][j]) {
+        int temp = 0;
+        for (int i = 0; i < 4; i++) {
 
-            dp[i][j] += solve(map, dp, M, N, i - 1, j);
+            int nextRow = row + dRow[i];
+            int nextCol = col + dCol[i];
+
+            if (nextRow < 0 || nextRow >= M || nextCol < 0 || nextCol >= N) {
+
+                continue;
+            }
+
+            if (map[nextRow][nextCol] < map[row][col]) {
+
+                temp += solve(nextRow, nextCol);
+            }
         }
 
-        // 하
-        if (i + 1 < M && map[i + 1][j] > map[i][j]) {
-
-            dp[i][j] += solve(map, dp, M, N, i + 1, j);
-        }
-
-        // 좌
-        if (j - 1 >= 0 && map[i][j - 1] > map[i][j]) {
-
-            dp[i][j] += solve(map, dp, M, N, i, j - 1);
-        }
-
-        // 우
-        if (j + 1 < N && map[i][j + 1] > map[i][j]) {
-
-            dp[i][j] += solve(map, dp, M, N, i, j + 1);
-        }
-
-        return dp[i][j];
+        return dp[row][col] = temp;
     }
 
+    static void printMap() {
+
+        for (int i = 0; i < M; i++) {
+
+            for (int j = 0; j < N; j++) {
+
+                System.out.print(dp[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
 }
