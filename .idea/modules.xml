@@ -32,11 +32,13 @@
       <module fileurl="file://$PROJECT_DIR$/BOJ#10998_AB/@BOJ#10998_AB.iml" filepath="$PROJECT_DIR$/BOJ#10998_AB/@BOJ#10998_AB.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#11005_RadixTransformation2/@BOJ#11005_RadixTransformation2.iml" filepath="$PROJECT_DIR$/BOJ#11005_RadixTransformation2/@BOJ#11005_RadixTransformation2.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#11047_Coin0/@BOJ#11047_Coin0.iml" filepath="$PROJECT_DIR$/BOJ#11047_Coin0/@BOJ#11047_Coin0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ#11048_Move/@BOJ#11048_Move.iml" filepath="$PROJECT_DIR$/BOJ#11048_Move/@BOJ#11048_Move.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#11052_CarpBread/@BOJ#11052_CarpBread.iml" filepath="$PROJECT_DIR$/BOJ#11052_CarpBread/@BOJ#11052_CarpBread.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#11053_LongestIncreaseSubsequence/@BOJ#11053_LongestIncreaseSubsequence.iml" filepath="$PROJECT_DIR$/BOJ#11053_LongestIncreaseSubsequence/@BOJ#11053_LongestIncreaseSubsequence.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#11054_LBS/@BOJ#11054_LBS.iml" filepath="$PROJECT_DIR$/BOJ#11054_LBS/@BOJ#11054_LBS.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#11055_SumOfLIS/@BOJ#11055_SumOfLIS.iml" filepath="$PROJECT_DIR$/BOJ#11055_SumOfLIS/@BOJ#11055_SumOfLIS.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#11057_AscentNum/@BOJ#11057_AscentNum.iml" filepath="$PROJECT_DIR$/BOJ#11057_AscentNum/@BOJ#11057_AscentNum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ#11058_kriiiBoard/@BOJ#11058_kriiiBoard.iml" filepath="$PROJECT_DIR$/BOJ#11058_kriiiBoard/@BOJ#11058_kriiiBoard.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#11066_MergingFiles/@BOJ#11066_MergingFiles.iml" filepath="$PROJECT_DIR$/BOJ#11066_MergingFiles/@BOJ#11066_MergingFiles.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#11399_ATM/@BOJ#11399_ATM.iml" filepath="$PROJECT_DIR$/BOJ#11399_ATM/@BOJ#11399_ATM.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#11403_BFS_FindPath/@BOJ#11403_BFS_FindPath.iml" filepath="$PROJECT_DIR$/BOJ#11403_BFS_FindPath/@BOJ#11403_BFS_FindPath.iml" />
@@ -102,6 +104,7 @@
       <module fileurl="file://$PROJECT_DIR$/BOJ#1965_PutBox/@BOJ#1965_PutBox.iml" filepath="$PROJECT_DIR$/BOJ#1965_PutBox/@BOJ#1965_PutBox.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#1966_PrinterQueue/@BOJ#1966_PrinterQueue.iml" filepath="$PROJECT_DIR$/BOJ#1966_PrinterQueue/@BOJ#1966_PrinterQueue.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#1978_FindPrimeNum/@BOJ#1978_FindPrimeNum.iml" filepath="$PROJECT_DIR$/BOJ#1978_FindPrimeNum/@BOJ#1978_FindPrimeNum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ#1987_Alphabet/@BOJ#1987_Alphabet.iml" filepath="$PROJECT_DIR$/BOJ#1987_Alphabet/@BOJ#1987_Alphabet.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2011_Alphacode/@BOJ#2011_Alphacode.iml" filepath="$PROJECT_DIR$/BOJ#2011_Alphacode/@BOJ#2011_Alphacode.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2089_MinusBinaryNum/@BOJ#2089_MinusBinaryNum.iml" filepath="$PROJECT_DIR$/BOJ#2089_MinusBinaryNum/@BOJ#2089_MinusBinaryNum.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#2133_TileFilling/@BOJ#2133_TileFilling.iml" filepath="$PROJECT_DIR$/BOJ#2133_TileFilling/@BOJ#2133_TileFilling.iml" />
