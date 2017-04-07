@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-	// dp[N][L] : 길이가 L이고 마지막 수가 L인 계단 수
+	// dp[N][L] : 길이가 N이고 마지막 수가 L인 계단 수
 	// dp[N][L] = dp[N-1][L-1] + dp[N-1][L+1]
 	static int[][] dp = new int[101][10];
 	static final int DIVISOR = 1_000_000_000;
