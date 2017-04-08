@@ -54,6 +54,7 @@ public class Main {
         System.out.println(solve(opened[0], opened[1], 0));
     }
 
+    // return : dp[firstPos][secondPos][idx]
     static int solve(int firstPos, int secondPos, int idx) {
 
         // 기저 조건
