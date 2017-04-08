@@ -54,8 +54,6 @@ public class Main {
 
     static int solve(int row, int col) {
 
-        //System.out.println("## row = " + row + ", col = " + col);
-
         if (row == M - 1 && col == N - 1) {
 
             return 1;
@@ -64,7 +62,6 @@ public class Main {
         // memoization
         if (dp[row][col] > NONE) {
 
-            //System.out.println("memoization");
             return dp[row][col];
         }
 
@@ -86,17 +83,5 @@ public class Main {
         }
 
         return dp[row][col] = temp;
-    }
-
-    static void printMap() {
-
-        for (int i = 0; i < M; i++) {
-
-            for (int j = 0; j < N; j++) {
-
-                System.out.print(dp[i][j] + " ");
-            }
-            System.out.println();
-        }
     }
 }
