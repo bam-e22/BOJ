@@ -33,21 +33,21 @@ public class Main {
 
         // solve
         dp[0][A[0]] = 1;
-        System.out.println(solve(1, A[0]));
+        System.out.println(solve(N - 2, A[N - 1]));
     }
 
     static long solve(int idx, int sum) {
 
         if (sum < MIN || sum > MAX) return 0;
-        if (idx == N - 1) {
+        if (idx == 0) {
 
             return (sum == A[idx]) ? 1 : 0;
         }
         if (dp[idx][sum] > 0) return dp[idx][sum];
 
         dp[idx][sum] = 0;
-        dp[idx][sum] += solve(idx + 1, sum + A[idx]);
-        dp[idx][sum] += solve(idx + 1, sum - A[idx]);
+        dp[idx][sum] += solve(idx - 1, sum + A[idx]);
+        dp[idx][sum] += solve(idx - 1, sum - A[idx]);
 
         return dp[idx][sum];
     }
