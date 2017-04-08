@@ -16,7 +16,7 @@ public class Main {
     static int[] opened = new int[2];
     static int[] order;
 
-    // dp[pos1][pos2][depth] : 열린문이 pos1, pos2에 위치하고 사용한 벽장문의 개수가 idx일 때 , 벽장문을 모두 사용하는데 필요한 최소 이동 수
+    // dp[pos1][pos2][depth] : 열린문이 pos1, pos2에 위치하고 사용한 벽장문의 개수가 idx일때, 벽장문을 모두 사용하는데 필요한 최소 이동 수
     static int[][][] dp = new int[21][21][21];
 
     static final int NOT_VISITED = -1;
