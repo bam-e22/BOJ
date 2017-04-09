@@ -137,7 +137,6 @@ public class Main {
 
     static PointInfo action(int rRow, int rCol, int bRow, int bCol, int dir) {
 
-        int nBlank;
         PointInfo initialState = new PointInfo(rRow, rCol, bRow, bCol);
 
         switch (dir) {
