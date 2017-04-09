@@ -84,7 +84,11 @@ public class Main {
         // solve
         dfs(rRow, rCol, bRow, bCol, 0);
 
+        // 13460
         System.out.println(dp[rRow][rCol][bRow][bCol][0] > LIMIT ? -1 : dp[rRow][rCol][bRow][bCol][0]);
+
+        // 13459
+        //System.out.println(dp[rRow][rCol][bRow][bCol][0] > LIMIT ? 0 : 1);
 
     } // main
 
