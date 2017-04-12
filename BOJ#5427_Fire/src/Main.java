@@ -80,6 +80,7 @@ public class Main {
 
             while (!queue.isEmpty() && !ret) {
 
+                // step 하나당 불과 상근이가 하나의 레벨만 bfs 탐색하도록 구성
                 step++;
 
                 // fire
@@ -106,10 +107,10 @@ public class Main {
                     }
                 }
 
+                // human
                 int size = queue.size();
                 for (int i = 0; i < size; i++) {
 
-                    // human
                     Point u = queue.poll();
 
                     if (u.row == 0 || u.col == 0 || u.row == h - 1 || u.col == w - 1) {
