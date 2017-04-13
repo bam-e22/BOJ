@@ -23,10 +23,8 @@ public class Main {
     static final int HORIZON = 1;
 
     static int N;
-    //static int[][] map = new int[52][52];
-    static int[][] map = new int[102][102];
-    //static boolean[][][] discovered = new boolean[52][52][2];
-    static boolean[][][] discovered = new boolean[102][102][2];
+    static int[][] map = new int[52][52];
+    static boolean[][][] discovered = new boolean[52][52][2];
 
     public static void main(String[] args) throws IOException {
 
