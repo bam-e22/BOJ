@@ -99,6 +99,8 @@ public class Main {
 
         // solve - condition check
         int minCost = INF;
+
+        // 실수했던 부분 #1 : 2차원 배열 조사 x, nV만큼만 조사하면 된다.
         for (int i = 1; i <= nV; i++) {
 
             if (notHouse.contains(i)) continue;
@@ -125,6 +127,7 @@ public class Main {
 
             if (dist[idx][u.node] < u.dist) continue;
 
+            // 실수했던 부분 #2 : u.node(현재노드)에 연결된 간선들만 조사
             ArrayList<Edge> list = adjList.get(u.node);
             for (Edge e : list) {
 
