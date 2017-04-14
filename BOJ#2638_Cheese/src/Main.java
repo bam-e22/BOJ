@@ -21,8 +21,6 @@ public class Main {
     static final int[] dRow = {0, -1, 0, 1};
     static final int[] dCol = {-1, 0, 1, 0};
 
-    static final boolean DEBUG = true;
-
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -114,28 +112,5 @@ public class Main {
             return true;
         }
         return false;
-    }
-
-    static void printMap() {
-
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-
-                System.out.printf("%4d", map[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
-}
-
-class Point {
-
-    int row, col;
-
-    Point(int row, int col) {
-
-        this.row = row;
-        this.col = col;
     }
 }
