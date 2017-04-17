@@ -66,6 +66,7 @@
       <module fileurl="file://$PROJECT_DIR$/BOJ#1254_Palindrome/@BOJ#1254_Palindrome.iml" filepath="$PROJECT_DIR$/BOJ#1254_Palindrome/@BOJ#1254_Palindrome.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#1260_DFS_BFS/@BOJ#1260_DFS_BFS.iml" filepath="$PROJECT_DIR$/BOJ#1260_DFS_BFS/@BOJ#1260_DFS_BFS.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#1261_Algospot/@BOJ#1261_Algospot.iml" filepath="$PROJECT_DIR$/BOJ#1261_Algospot/@BOJ#1261_Algospot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ#1263_TimeManage/@BOJ#1263_TimeManage.iml" filepath="$PROJECT_DIR$/BOJ#1263_TimeManage/@BOJ#1263_TimeManage.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#12851_CatchTheCow2/@BOJ#12851_CatchTheCow2.iml" filepath="$PROJECT_DIR$/BOJ#12851_CatchTheCow2/@BOJ#12851_CatchTheCow2.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#12852_SetTo1/@BOJ#12852_SetTo1.iml" filepath="$PROJECT_DIR$/BOJ#12852_SetTo1/@BOJ#12852_SetTo1.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#12930_Weights/@BOJ#12930_Weights.iml" filepath="$PROJECT_DIR$/BOJ#12930_Weights/@BOJ#12930_Weights.iml" />
@@ -178,7 +179,6 @@
       <module fileurl="file://$PROJECT_DIR$/BOJ#1014_NoCheating(Small)/BOJ#1014_NoCheating(Small).iml" filepath="$PROJECT_DIR$/BOJ#1014_NoCheating(Small)/BOJ#1014_NoCheating(Small).iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#10972_NextPermutation/BOJ#10972_NextPermutation.iml" filepath="$PROJECT_DIR$/BOJ#10972_NextPermutation/BOJ#10972_NextPermutation.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#10973_PrevPermutation/BOJ#10973_PrevPermutation.iml" filepath="$PROJECT_DIR$/BOJ#10973_PrevPermutation/BOJ#10973_PrevPermutation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BOJ#1263_TimeManage/BOJ#1263_TimeManage.iml" filepath="$PROJECT_DIR$/BOJ#1263_TimeManage/BOJ#1263_TimeManage.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#12872_PlayList/BOJ#12872_PlayList.iml" filepath="$PROJECT_DIR$/BOJ#12872_PlayList/BOJ#12872_PlayList.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#1328_Skyscraper/BOJ#1328_Skyscraper.iml" filepath="$PROJECT_DIR$/BOJ#1328_Skyscraper/BOJ#1328_Skyscraper.iml" />
       <module fileurl="file://$PROJECT_DIR$/BOJ#13560_Football/BOJ#13560_Football.iml" filepath="$PROJECT_DIR$/BOJ#13560_Football/BOJ#13560_Football.iml" />
