@@ -6,215 +6,148 @@ import java.util.StringTokenizer;
 
 /**
  * BOJ#12100 2048 (Easy)
- * https://www.acmicpc.net/problem/12094
+ * https://www.acmicpc.net/problem/12100
+ * <p>
+ * 두번째 풀기 17.04.09
  */
 
 public class Main {
 
-    static final int FINAL_STEP = 5;
-    static int MAX_VALUE = 0;
+    // direction
+    static final int LEFT = 0;
+    static final int UP = 1;
+    static final int RIGHT = 2;
+    static final int DOWN = 3;
 
-    static final int UP = 0;
-    static final int DOWN = 1;
-    static final int LEFT = 2;
-    static final int RIGHT = 3;
+    // game info
+    static int N;
+    static final int LIMIT = 5;
+    static int maxValue = 0;
+
+    // map info
+    static final int BLANK = 0;
 
     public static void main(String[] args) throws IOException {
 
-        int N; // 보드의 크기
-        int[][] map; // 보드
-
         // input
+        int[][] map = new int[21][21];
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         N = Integer.parseInt(br.readLine());
-
-        map = new int[N][N];
-
-        for (int i = 0; i < N; i++) {
-
-            Arrays.fill(map[i], 0);
-        }
-
         for (int i = 0; i < N; i++) {
 
             StringTokenizer st = new StringTokenizer(br.readLine());
-
             for (int j = 0; j < N; j++) {
 
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        if (N == 1) {
+        // solve
+        dfs(map, 0);
+        System.out.println(maxValue);
+    }
 
-            System.out.println(map[0][0]);
-        } else {
+    static void dfs(int[][] map, int step) {
 
-            backTracking(map, N, 0);
-        }
+        // 종료
+        if (step == LIMIT) {
 
-        System.out.println(MAX_VALUE);
-
-    } // main
-
-    static void backTracking(int[][] map, int N, int step) {
-
-        // 5 Step 도달 시
-        if (step == FINAL_STEP) {
-
-            int tempValue = checkMaxValue(map, N);
-            MAX_VALUE = tempValue > MAX_VALUE ? tempValue : MAX_VALUE;
-
+            updateMaxValue(map);
             return;
         }
 
-        // 4 방향
-        for (int direction = 0; direction < 4; direction++) {
+        // 탐색
+        for (int i = 0; i < 4; i++) {
 
             int[][] mapCopy = new int[N][N];
-            for (int i = 0; i < N; i++) {
-
-                mapCopy[i] = Arrays.copyOf(map[i], N);
-            }
-
-            mapCopy = move(mapCopy, N, direction);
-            backTracking(mapCopy, N, step + 1);
-        }
-    }
-
-    static int checkMaxValue(int[][] map, int N) {
-
-        int maxValue = 0;
-        for (int i = 0; i < N; i++) {
-
             for (int j = 0; j < N; j++) {
 
-                maxValue = map[i][j] > maxValue ? map[i][j] : maxValue;
+                mapCopy[j] = Arrays.copyOf(map[j], N);
             }
-        }
 
-        return maxValue;
+            dfs(action(mapCopy, i), step + 1);
+        }
     }
 
-    static int[][] move(int[][] map, int N, int direction) {
+    static int[][] action(int[][] mapCopy, int dir) {
 
-        switch (direction) {
-
-            case UP:
-
-                for (int j = 0; j < N; j++) {
-
-                    int blank = map[0][j] == 0 ? 1 : 0;
-                    int bound = 0;
-                    for (int i = 1; i < N; i++) {
-
-                        if (map[i][j] == 0) {
-
-                            blank++;
-                        } else {
-
-                            // 병합 가능
-                            if (map[i][j] == map[i - blank - 1 < bound ? bound : i - blank - 1][j]) {
-
-                                map[i - blank - 1 < bound ? bound : i - blank - 1][j] *= 2;
-                                map[i][j] = 0;
-
-                                bound = i - blank;
-                                blank++;
-                            }
-
-                            // 병합 불가능
-                            else {
-
-                                if (blank != 0) {
-
-                                    map[i - blank][j] = map[i][j];
-                                    map[i][j] = 0;
-
-                                    bound = i - blank;
-
-                                }
-                            }
-                        }
-                    }
-                }
-                break;
-
-            case DOWN:
-
-                for (int j = 0; j < N; j++) {
-
-                    int blank = map[N - 1][j] == 0 ? 1 : 0;
-                    int bound = N - 1;
-                    for (int i = N - 2; i >= 0; i--) {
-
-                        if (map[i][j] == 0) {
-
-                            blank++;
-                        } else {
-
-                            // 병합 가능
-                            if (map[i][j] == map[i + blank + 1 > bound ? bound : i + blank + 1][j]) {
-
-                                map[i + blank + 1 > bound ? bound : i + blank + 1][j] *= 2;
-                                map[i][j] = 0;
-
-                                bound = i + blank;
-                                blank++;
-                            }
-
-                            // 병합 불가능
-                            else {
-
-                                if (blank != 0) {
-
-                                    map[i + blank][j] = map[i][j];
-                                    map[i][j] = 0;
-
-                                    bound = i + blank;
-
-                                }
-                            }
-                        }
-                    }
-                }
-                break;
+        switch (dir) {
 
             case LEFT:
 
-                for (int i = 0; i < N; i++) {
+                for (int row = 0; row < N; row++) {
 
-                    int blank = map[i][0] == 0 ? 1 : 0;
-                    int bound = 0;
-                    for (int j = 1; j < N; j++) {
+                    int nBlank = 0;
+                    // 왼쪽에서 오른쪽으로
+                    for (int col = 1; col < N; col++) {
 
-                        if (map[i][j] == 0) {
+                        // 검사 노드 == 0
+                        if (mapCopy[row][col] == BLANK) {
 
-                            blank++;
+                            nBlank++;
+                            continue;
                         } else {
 
-                            // 병합 가능
-                            if (map[i][j] == map[i][j - blank - 1 < bound ? bound : j - blank - 1]) {
+                            // 병합 가능 : 검사 노드 = 대상 노드
+                            if (mapCopy[row][col] == mapCopy[row][col - 1 - nBlank]) {
 
-                                map[i][j - blank - 1 < bound ? bound : j - blank - 1] *= 2;
-                                map[i][j] = 0;
-
-                                bound = j - blank;
-                                blank++;
+                                mapCopy[row][col - 1 - nBlank] *= 2;
+                                mapCopy[row][col] = BLANK;
                             }
+                            // 병합 불가능 : 검사 노드 != 0 && 대상 노드 == 0
+                            else if (mapCopy[row][col - 1 - nBlank] == 0) {
 
-                            // 병합 불가능
+                                mapCopy[row][col - 1 - nBlank] = mapCopy[row][col];
+                                mapCopy[row][col] = BLANK;
+                                nBlank++;
+                            }
+                            // 병합 불가능 : 검사 노드 != 0 && 대상 노드 != 0 && 검사노드 != 대상노드
                             else {
 
-                                if (blank != 0) {
+                                mapCopy[row][col - nBlank] = mapCopy[row][col];
+                                if (nBlank != 0) mapCopy[row][col] = BLANK;
+                            }
+                        }
+                    }
+                }
 
-                                    map[i][j - blank] = map[i][j];
-                                    map[i][j] = 0;
+                break;
 
-                                    bound = j - blank;
+            case UP:
 
-                                }
+                for (int col = 0; col < N; col++) {
+
+                    int nBlank = 0;
+                    // 위쪽에서 아래쪽으로
+                    for (int row = 1; row < N; row++) {
+
+                        // 검사 노드 == 0
+                        if (mapCopy[row][col] == BLANK) {
+
+                            nBlank++;
+                            continue;
+                        } else {
+
+                            // 병합 가능 : 검사 노드 = 대상 노드
+                            if (mapCopy[row - 1 - nBlank][col] == mapCopy[row][col]) {
+
+                                mapCopy[row - 1 - nBlank][col] *= 2;
+                                mapCopy[row][col] = BLANK;
+                            }
+                            // 병합 불가능 : 검사 노드 != 0 && 대상 노드 == 0
+                            else if (mapCopy[row - 1 - nBlank][col] == 0) {
+
+                                mapCopy[row - 1 - nBlank][col] = mapCopy[row][col];
+                                mapCopy[row][col] = BLANK;
+                                nBlank++;
+                            }
+                            // 병합 불가능 : 검사 노드 != 0 && 대상 노드 == 0
+                            else {
+
+                                mapCopy[row - nBlank][col] = mapCopy[row][col];
+                                if (nBlank != 0) mapCopy[row][col] = BLANK;
                             }
                         }
                     }
@@ -223,38 +156,76 @@ public class Main {
 
             case RIGHT:
 
-                for (int i = 0; i < N; i++) {
+                for (int row = 0; row < N; row++) {
 
-                    int blank = map[i][N - 1] == 0 ? 1 : 0;
-                    int bound = N - 1;
-                    for (int j = N - 2; j >= 0; j--) {
+                    int nBlank = 0;
+                    // 오른쪽에서 왼쪽으로
+                    for (int col = N - 2; col >= 0; col--) {
 
-                        if (map[i][j] == 0) {
+                        // 검사 노드 == 0
+                        if (mapCopy[row][col] == BLANK) {
 
-                            blank++;
+                            nBlank++;
+                            continue;
                         } else {
 
-                            // 병합 가능
-                            if (map[i][j] == map[i][j + blank + 1 > bound ? bound : j + blank + 1]) {
+                            // 병합 가능 : 검사 노드 = 대상 노드
+                            if (mapCopy[row][col] == mapCopy[row][col + 1 + nBlank]) {
 
-                                map[i][j + blank + 1 > bound ? bound : j + blank + 1] *= 2;
-                                map[i][j] = 0;
-
-                                bound = j + blank;
-                                blank++;
+                                mapCopy[row][col + 1 + nBlank] *= 2;
+                                mapCopy[row][col] = BLANK;
                             }
+                            // 병합 불가능 : 검사 노드 != 0 && 대상 노드 == 0
+                            else if (mapCopy[row][col + 1 + nBlank] == 0) {
 
-                            // 병합 불가능
+                                mapCopy[row][col + 1 + nBlank] = mapCopy[row][col];
+                                mapCopy[row][col] = BLANK;
+                                nBlank++;
+                            }
+                            // 병합 불가능 : 검사 노드 != 0 && 대상 노드 == 0
                             else {
 
-                                if (blank != 0) {
+                                mapCopy[row][col + nBlank] = mapCopy[row][col];
+                                if (nBlank != 0) mapCopy[row][col] = BLANK;
+                            }
+                        }
+                    }
+                }
+                break;
 
-                                    map[i][j + blank] = map[i][j];
-                                    map[i][j] = 0;
+            case DOWN:
 
-                                    bound = j + blank;
+                for (int col = 0; col < N; col++) {
 
-                                }
+                    int nBlank = 0;
+                    // 아래쪽에서 위쪽으로
+                    for (int row = N - 2; row >= 0; row--) {
+
+                        // 검사 노드 == 0
+                        if (mapCopy[row][col] == BLANK) {
+
+                            nBlank++;
+                            continue;
+                        } else {
+
+                            // 병합 가능 : 검사 노드 = 대상 노드
+                            if (mapCopy[row + 1 + nBlank][col] == mapCopy[row][col]) {
+
+                                mapCopy[row + 1 + nBlank][col] *= 2;
+                                mapCopy[row][col] = BLANK;
+                            }
+                            // 병합 불가능 : 검사 노드 != 0 && 대상 노드 == 0
+                            else if (mapCopy[row + 1 + nBlank][col] == 0) {
+
+                                mapCopy[row + 1 + nBlank][col] = mapCopy[row][col];
+                                mapCopy[row][col] = BLANK;
+                                nBlank++;
+                            }
+                            // 병합 불가능 : 검사 노드 != 0 && 대상 노드 == 0
+                            else {
+
+                                mapCopy[row + nBlank][col] = mapCopy[row][col];
+                                if (nBlank != 0) mapCopy[row][col] = BLANK;
                             }
                         }
                     }
@@ -262,7 +233,20 @@ public class Main {
                 break;
         }
 
-        return map;
+        return mapCopy;
     }
 
+    static void updateMaxValue(int[][] mapCopy) {
+
+        int tempMaxValue = 0;
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+
+                tempMaxValue = tempMaxValue < mapCopy[i][j] ? mapCopy[i][j] : tempMaxValue;
+            }
+        }
+
+        maxValue = maxValue < tempMaxValue ? tempMaxValue : maxValue;
+    }
 }
