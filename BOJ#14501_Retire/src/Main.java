@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
@@ -10,10 +11,17 @@ import java.util.StringTokenizer;
 
 public class Main {
 
+    static final int INF = 10000000;
+
     static int[] T = new int[16];
     static int[] P = new int[16];
+    static int[] dp = new int[16];
     static int N;
-    static int maxValue = 0;
+
+    static {
+
+        Arrays.fill(dp, -1);
+    }
 
     public static void main(String[] args) throws IOException {
 
@@ -28,25 +36,22 @@ public class Main {
             P[i] = Integer.parseInt(st.nextToken());
         }
 
-        solve(1, 0);
-
-        System.out.println(maxValue);
+        System.out.println(solve(1));
+        System.out.println(Arrays.toString(dp));
     }
 
-    static void solve(int idx, int sum) {
+    // return dp[idx] : 날짜가 idx일때 이후 더 받을 수 있는 금액의 최대값
+    static int solve(int idx) {
 
-        if (idx == N + 1) {
+        // 기저 사례 : 날짜가 N+1일 때
+        if (idx == N + 1) return 0;
 
-            maxValue = maxValue < sum ? sum : maxValue;
-            return;
-        }
+        // 기저 사례 : 날짜가 N+1을 넘을 경우
+        if (idx > N + 1) return -INF;
 
-        if (idx > N + 1) {
+        // memoization
+        if (dp[idx] != -1) return dp[idx];
 
-            return;
-        }
-
-        solve(idx + 1, sum);
-        solve(idx + T[idx], sum + P[idx]);
+        return dp[idx] = Math.max(solve(idx + 1), solve(idx + T[idx]) + P[idx]);
     }
 }
