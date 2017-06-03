@@ -13,7 +13,7 @@
 ![](https://github.com/stack07142/BOJ/blob/master/img/Algorithm%20PS%20Roadmap_v0.1.png)
 
 * Inspired By
-https://github.com/kamranahmedse/developer-roadmap
-https://github.com/godrm/mobile-developer-roadmap
-http://blog.naver.com/wnsgh224/220897329629
+- https://github.com/kamranahmedse/developer-roadmap
+- https://github.com/godrm/mobile-developer-roadmap
+- http://blog.naver.com/wnsgh224/220897329629
 
