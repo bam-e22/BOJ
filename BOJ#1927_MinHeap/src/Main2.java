@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 public class Main2 {
 
     static final int POLL = 0;
+    static final int MAX_SIZE = 100_001;
 
     public static void main(String[] args) throws IOException {
 
@@ -18,20 +19,24 @@ public class Main2 {
         int N = Integer.parseInt(br.readLine());
 
         int cmd;
-        Heap heap = new Heap();
+        StringBuilder sb = new StringBuilder();
+
+        Heap heap = new Heap(MAX_SIZE);
         while (N-- > 0) {
 
             cmd = Integer.parseInt(br.readLine());
 
             if (cmd == POLL) {
 
-                if (heap.getLength() > 0) System.out.println(heap.poll());
-                else System.out.println(0);
+                if (heap.getLength() > 0) sb.append(heap.poll() + "\n");
+                else sb.append("0\n");
             } else {
 
                 heap.add(cmd);
             }
         } // ~ while loop
+
+        System.out.println(sb);
     }
 }
 
@@ -42,8 +47,9 @@ class Heap {
     private int[] A = new int[100_001];
     private int length = 0;
 
-    Heap() {
+    Heap(int size) {
 
+        A = new int[size];
     }
 
     void add(int a) {
@@ -61,10 +67,10 @@ class Heap {
         // there is no child
         if (parentNode * 2 > length) return;
 
-        // biggest child
-        int childNode = getBiggestChildNode(parentNode);
+        // smallest child
+        int childNode = getSmallestChildNode(parentNode);
 
-        // min heap property
+        // min heap property check
         if (A[parentNode] <= A[childNode]) return;
 
         swap(parentNode, childNode);
@@ -73,9 +79,10 @@ class Heap {
         heapify(childNode);
     }
 
-    int getBiggestChildNode(int parentNode) {
+    int getSmallestChildNode(int parentNode) {
 
-        return A[parentNode * 2] > A[parentNode * 2 + 1] ? parentNode * 2 : parentNode * 2 + 1;
+        if (parentNode * 2 + 1 > length) return parentNode * 2;
+        else return A[parentNode * 2] < A[parentNode * 2 + 1] ? parentNode * 2 : parentNode * 2 + 1;
     }
 
     int poll() {
