@@ -5,113 +5,81 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-
-/*
- * BOJ#2178_미로 탐색
- * https://www.acmicpc.net/problem/2178
- */
 public class Main {
 
-	public static void main(String[] args) throws IOException {
+    static final int[] dRow = {0, -1, 0, 1};
+    static final int[] dCol = {-1, 0, 1, 0};
 
-		int N, M;
-		node[][] maze;
+    public static void main(String[] args) throws IOException {
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        // input
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-		StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
 
-		N = Integer.parseInt(st.nextToken());
-		M = Integer.parseInt(st.nextToken());
+        int[][] map = new int[N + 1][M + 1];
 
-		maze = new node[N][M];
+        for (int i = 1; i < N + 1; i++) {
 
-		for (int i = 0; i < N; i++) {
+            String input = br.readLine();
+            for (int j = 1; j < M + 1; j++) {
 
-			String subMaze = br.readLine();
+                map[i][j] = input.charAt(j - 1) - '0';
+            }
+        }
 
-			for (int j = 0; j < M; j++) {
+        // solve - bfs
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(new Node(1, 1));
 
-				maze[i][j] = new node(i, j, Integer.parseInt(subMaze.substring(j, j + 1)));
-			}
-		}
+        boolean[][] discovered = new boolean[N + 1][M + 1];
+        discovered[1][1] = true;
 
-		bfs(maze);
-		System.out.println(maze[N - 1][M - 1].cost);
-	}
+        int step = 0;
 
-	static void bfs(node[][] maze) {
+        while (!queue.isEmpty()) {
 
-		Queue<node> q = new LinkedList<node>();
+            step++;
+            int size = queue.size();
 
-		q.offer(maze[0][0]);
-		maze[0][0].cost = 1;
-		maze[0][0].visited = true;
+            for (int i = 0; i < size; i++) {
 
-		while (!q.isEmpty()) {
+                Node u = queue.poll();
 
-			node n = q.poll();
+                if (u.row == N && u.col == M) {
 
-			if (!(n.x <= 0)) {
+                    System.out.println(step);
+                    return;
+                }
 
-				if (maze[n.x - 1][n.y].value == 1 && !maze[n.x - 1][n.y].visited) {
+                for (int j = 0; j < 4; j++) {
 
-					q.offer(maze[n.x - 1][n.y]);
-					maze[n.x - 1][n.y].visited = true;
-					if (maze[n.x - 1][n.y].cost == -1 || maze[n.x - 1][n.y].cost > n.cost + 1)
-						maze[n.x - 1][n.y].cost = n.cost + 1;
-				}
-			}
-			if (!(n.x >= maze.length - 1)) {
+                    int nextRow = u.row + dRow[j];
+                    int nextCol = u.col + dCol[j];
 
-				if (maze[n.x + 1][n.y].value == 1 && !maze[n.x + 1][n.y].visited) {
+                    if (nextRow < 1 || nextRow > N || nextCol < 1 || nextCol > M) continue;
+                    if (map[nextRow][nextCol] == 0) continue;
+                    if (discovered[nextRow][nextCol]) continue;
 
-					q.offer(maze[n.x + 1][n.y]);
-					maze[n.x + 1][n.y].visited = true;
-					if (maze[n.x + 1][n.y].cost == -1 || maze[n.x + 1][n.y].cost > n.cost + 1)
-						maze[n.x + 1][n.y].cost = n.cost + 1;
-				}
-			}
-			if (!(n.y <= 0)) {
+                    discovered[nextRow][nextCol] = true;
+                    queue.add(new Node(nextRow, nextCol));
+                }
+            }
+        }
 
-				if (maze[n.x][n.y - 1].value == 1 && !maze[n.x][n.y - 1].visited) {
-
-					q.offer(maze[n.x][n.y - 1]);
-					maze[n.x][n.y - 1].visited = true;
-					if (maze[n.x][n.y - 1].cost == -1 || maze[n.x][n.y - 1].cost > n.cost + 1)
-						maze[n.x][n.y - 1].cost = n.cost + 1;
-				}
-			}
-			if (!(n.y >= maze[0].length - 1)) {
-
-				if (maze[n.x][n.y + 1].value == 1 && !maze[n.x][n.y + 1].visited) {
-
-					q.offer(maze[n.x][n.y + 1]);
-					maze[n.x][n.y + 1].visited = true;
-					if (maze[n.x][n.y + 1].cost == -1 || maze[n.x][n.y + 1].cost > n.cost + 1)
-						maze[n.x][n.y + 1].cost = n.cost + 1;
-				}
-			}
-
-		}
-
-	}
-
+        System.out.println(step);
+    }
 }
 
-class node {
+class Node {
 
-	int x, y;
-	int value;
-	int cost;
-	boolean visited;
+    int row, col;
 
-	node(int x, int y, int value) {
+    Node(int row, int col) {
 
-		this.x = x;
-		this.y = y;
-		this.value = value;
-		this.cost = -1;
-		this.visited = false;
-	}
+        this.row = row;
+        this.col = col;
+    }
 }
