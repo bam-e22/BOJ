@@ -1,105 +1,69 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-/*
- * https://www.acmicpc.net/problem/11403
- * BOJ#11403_FindPath
- */
-
 public class Main {
+
+	static int N;
+	static int[][] map = new int[101][101];
 
 	public static void main(String[] args) throws IOException {
 
-		int N;
-		int[][] adjList;
-		int[][] path;
-		boolean[] visited;
-
+		// Input
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
 		N = Integer.parseInt(br.readLine());
-
-		adjList = new int[N][N];
-		path = new int[N][N];
-		visited = new boolean[N];
-
-		for (int i = 0; i < N; i++) {
-
-			for (int j = 0; j < N; j++) {
-
-				adjList[i][j] = 0;
-				path[i][j] = 0;
-			}
-			visited[i] = false;
-		}
 
 		for (int i = 0; i < N; i++) {
 
 			StringTokenizer st = new StringTokenizer(br.readLine());
-
 			for (int j = 0; j < N; j++) {
 
-				adjList[i][j] = Integer.parseInt(st.nextToken());
+				map[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
 
+		// Solve
 		for (int i = 0; i < N; i++) {
-
-			bfs(adjList, visited, i, N);
-
 			for (int j = 0; j < N; j++) {
 
-				if (visited[j]) {
-
-					path[i][j] = 1;
-				}
+				bw.write(solve(i, j) + " ");
 			}
-		}
-		print(path);
-
-	}
-
-	static void bfs(int[][] adjList, boolean[] visited, int v, int N) {
-
-		for (int i = 0; i < N; i++) {
-
-			visited[i] = false;
+			bw.write("\n");
 		}
 
-		Queue<Integer> q = new LinkedList<Integer>();
+		bw.flush();
 
-		q.offer(v);
+		bw.close();
+		br.close();
+	} // ~ main
 
-		while (!q.isEmpty()) {
+	static int solve(int src, int dest) {
 
-			v = q.poll();
+		boolean[] visited = new boolean[N];
+
+		Queue<Integer> queue = new LinkedList<>();
+
+		queue.add(src);
+
+		while (!queue.isEmpty()) {
+
+			int u = queue.poll();
+			visited[u] = true;
+
+			if (map[u][dest] == 1) return 1;
 
 			for (int i = 0; i < N; i++) {
 
-				if (adjList[v][i] == 1 && !visited[i]) {
+				if (map[u][i] == 1 && !visited[i]) {
 
-					q.offer(i);
-					visited[i] = true;
+					queue.add(i);
 				}
 			}
 		}
+
+		return 0;
 	}
-
-	static void print(int[][] path) {
-
-		for (int i = 0; i < path.length; i++) {
-
-			for (int j = 0; j < path.length; j++) {
-
-				System.out.print(path[i][j] + " ");
-			}
-
-			System.out.println();
-		}
-	}
-
 }
