@@ -23,7 +23,9 @@ public class Main {
             nodes[i] = new Node(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
         }
 
+        //System.out.println(Arrays.toString(nodes));
         Arrays.sort(nodes);
+        //System.out.println(Arrays.toString(nodes));
 
         Comparator<Node> cp = (o1, o2) -> {
 
@@ -37,6 +39,8 @@ public class Main {
 
             return 0;
         };
+
+        //System.out.println(Arrays.binarySearch(nodes, new Node(1, 0), cp));
 
         Queue<Node> queue = new LinkedList<>();
         queue.add(new Node(0, 0));
@@ -59,7 +63,7 @@ public class Main {
                 }
 
                 // 탐색의 범위를 줄여보자
-                int startIdx = Arrays.binarySearch(nodes, new Node(u.row, u.col - 2 < 0 ? 0 : u.col - 2), cp);
+                int startIdx = Arrays.binarySearch(nodes, new Node(u.row - 2 < 0 ? 0 : u.row - 2, u.col - 2 < 0 ? 0 : u.col - 2), cp);
                 startIdx = startIdx < 0 ? -startIdx - 1 : startIdx;
 
                 // 탐색
@@ -98,5 +102,11 @@ class Node implements Comparable<Node> {
     public int compareTo(Node o) {
 
         return this.col < o.col ? -1 : this.col > o.col ? 1 : this.row < o.row ? -1 : 1;
+    }
+
+    @Override
+    public String toString() {
+
+        return "(" + row + ", " + col + ")\n";
     }
 }
