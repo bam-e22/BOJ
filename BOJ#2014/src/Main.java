@@ -25,7 +25,7 @@ public class Main {
         }
 
         long u = 0L;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < N - 1; i++) {
 
             u = pq.poll();
 
@@ -37,6 +37,6 @@ public class Main {
             }
         }
 
-        System.out.println(u);
+        System.out.println(pq.poll());
     }
 }
