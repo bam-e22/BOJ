@@ -10,49 +10,49 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 
-		int N;
-		int[] A;
-		int[] dp;
+        int N;
+        int[] A;
+        int[] dp;
 
-		int max = 0;
+        int max = 0;
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		N = Integer.parseInt(br.readLine());
-		A = new int[N];
-		dp = new int[N];
+        N = Integer.parseInt(br.readLine());
+        A = new int[N];
+        dp = new int[N];
 
-		StringTokenizer st = new StringTokenizer(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-		for (int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) {
 
-			A[i] = Integer.parseInt(st.nextToken());
-		}
+            A[i] = Integer.parseInt(st.nextToken());
+        }
 
-		for (int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) {
 
-			dp[i] = A[i];
-		}
+            dp[i] = A[i];
+        }
 
-		// O(n^2)
-		for (int i = 1; i < N; i++) {
+        // O(n^2)
+        for (int i = 1; i < N; i++) {
 
-			int temp = 0;
-			for (int j = 0; j < i; j++) {
+            int temp = 0;
+            for (int j = 0; j < i; j++) {
 
-				if (A[j] < A[i]) {
+                if (A[j] < A[i]) {
 
-					temp = temp < dp[j] ? dp[j] : temp;
-				}
-			}
+                    temp = temp < dp[j] ? dp[j] : temp;
+                }
+            }
 
-			dp[i] += temp;
-			max = max < dp[i] ? dp[i] : max;
-		}
+            dp[i] += temp;
+            max = max < dp[i] ? dp[i] : max;
+        }
 
-		System.out.println(max);
-	}
+        System.out.println(N == 1 ? A[0] : max);
+    }
 
 }
