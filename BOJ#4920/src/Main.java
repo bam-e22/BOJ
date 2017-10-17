@@ -22,7 +22,6 @@ public class Main {
 
     static int N;
     static int[][] map = new int[101][101];
-    static boolean[][] visited = new boolean[101][101];
     static int maxSum = Integer.MIN_VALUE;
 
     public static void main(String[] args) throws IOException {
@@ -54,11 +53,11 @@ public class Main {
             for (int row = 0; row < N; row++) {
                 for (int col = 0; col < N; col++) {
 
-                    // dfs
-                    dfs(row, col);
+                    // Pattern1
+                    solve1(row, col);
 
-                    // +
-                    solve(row, col);
+                    // Pattern2 (+)
+                    solve2(row, col);
                 }
             }
 
@@ -66,7 +65,7 @@ public class Main {
         } // ~ test case loop
     } // ~ main
 
-    static void dfs(int row, int col) {
+    static void solve1(int row, int col) {
 
         for (int i = 0; i < 9; i++) {
 
@@ -97,7 +96,7 @@ public class Main {
         }
     }
 
-    static void solve(int row, int col) {
+    static void solve2(int row, int col) {
 
         int nInvalidity = 0;
         int minValue = Integer.MAX_VALUE;
