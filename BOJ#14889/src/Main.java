@@ -46,18 +46,13 @@ public class Main {
                 }
 
                 int sumA = 0;
-                for (int a1 : teamA) {
-                    for (int a2 : teamA) {
-
-                        sumA += S[a1][a2];
-                    }
-                }
-
                 int sumB = 0;
-                for (int b1 : teamB) {
-                    for (int b2 : teamB) {
 
-                        sumB += S[b1][b2];
+                for (int i = 0; i < N/2; i++) {
+                    for (int j = 0; j < N/2; j++) {
+
+                        sumA += S[teamA.get(i)][teamA.get(j)];
+                        sumB += S[teamB.get(i)][teamB.get(j)];
                     }
                 }
 
