@@ -23,9 +23,7 @@ public class Main {
             nodes[i] = new Node(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
         }
 
-        //System.out.println(Arrays.toString(nodes));
         Arrays.sort(nodes);
-        //System.out.println(Arrays.toString(nodes));
 
         Comparator<Node> cp = (o1, o2) -> {
 
@@ -39,8 +37,6 @@ public class Main {
 
             return 0;
         };
-
-        //System.out.println(Arrays.binarySearch(nodes, new Node(1, 0), cp));
 
         Queue<Node> queue = new LinkedList<>();
         queue.add(new Node(0, 0));

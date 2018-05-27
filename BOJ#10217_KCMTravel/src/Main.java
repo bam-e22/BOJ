@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 /**
@@ -12,8 +10,7 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-    static final int START = 1;
-    static final int INF = 1000000000;
+    static final int START = 0;
 
     public static void main(String[] args) throws IOException {
 
@@ -32,54 +29,17 @@ public class Main {
             int M = Integer.parseInt(st.nextToken());
             int K = Integer.parseInt(st.nextToken());
 
-            ArrayList<ArrayList<Edge>> adjList = new ArrayList<>();
-            int[] dist = new int[N + 1];
-            for (int i = 0; i < N + 1; i++) {
-
-                adjList.add(new ArrayList<>());
-                dist[i] = INF;
-            }
-
             for (int i = 0; i < K; i++) {
 
                 st = new StringTokenizer(br.readLine());
 
-                int u = Integer.parseInt(st.nextToken());
-                int v = Integer.parseInt(st.nextToken());
-                int x = Integer.parseInt(st.nextToken());
-                int d = Integer.parseInt(st.nextToken());
 
-                adjList.get(u).add(new Edge(v, x, d));
+
             }
-
-            // solve
-            PriorityQueue<Node> pq = new PriorityQueue<>();
-
-            pq.add(new Node(START, 0, 0));
-            dist[START] = 0;
-
-            while (!pq.isEmpty()) {
-
-                Node u = pq.poll();
-
-                for (Edge edge : adjList.get(u.node)) {
-
-                    if (dist[edge.toNode] > u.dist + edge.dist
-                            && u.cost + edge.cost <= M) {
-
-                        dist[edge.toNode] = u.dist + edge.dist;
-
-                        pq.add(new Node(edge.toNode, u.cost + edge.cost, dist[edge.toNode]));
-                    }
-                }
-            }
-
-            System.out.println(dist[N] >= INF ? "Poor KCM" : dist[N]);
 
         } // ~test case loop
     }
 }
-
 
 class Edge {
 
@@ -111,6 +71,6 @@ class Node implements Comparable<Node> {
     @Override
     public int compareTo(Node o) {
 
-        return this.dist < o.dist ? -1 : 1;
+        return this.dist < o.dist ? -1 : this.dist > o.dist ? 1 : this.cost < o.cost ? -1 : 1;
     }
 }
